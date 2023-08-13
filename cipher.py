@@ -16,7 +16,7 @@ def encypt_func(txt, s):
     return result  
 # check the above function  
 txt = input("Please enter a sentence: ")  
-s = 4  
- 
-print("Shift pattern: " + str(s))  
+s = 5
+
 print("The encrypted sentence is: " + encypt_func(txt, s))
+
