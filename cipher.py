@@ -1,7 +1,12 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
 # add your code here
 def encypt_func(txt, s):  
     result = ""  
-  
   
 # transverse the plain txt  
     for i in range(len(txt)):  
@@ -16,7 +21,7 @@ def encypt_func(txt, s):
     return result  
 # check the above function  
 txt = input("Please enter a sentence: ")  
-s = 5
+s = 4
 
 print("The encrypted sentence is: " + encypt_func(txt, s))
 
