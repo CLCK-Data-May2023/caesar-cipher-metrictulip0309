@@ -4,59 +4,30 @@
 # In[ ]:
 
 
-def caesar_encrypt(plaintext, shift):
-    ciphertext = ""
-    for char in plaintext:
+abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+            'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-        # The python string isalpha() method is used to check whether the string consists of alphabets.
+txt = input("Please enter a sentence: ").lower()
+shift = 5
 
-        if char.isalpha():
+def is_abc(value, list):
+    #Check if character is contained in list
+    for x in list:
+        if x == value:
+            return True
+        False 
 
-            # Python ord() function takes string argument of a single Unicode character and return its integer Unicode code point value
-            # Python chr() function takes integer argument and return the string representing a character at that code point
-            # Python ord() and chr() are built-in functions. They are used to convert a character to an int and vice versa
+def enc_text(text_string, shift):
+    #encrypt each letter by specified shift amount
+    encr_list=[]
 
-            # Encrypt uppercase characters in plain text else Encrypt lowercase characters in plain text
-            
-            #The "% 26" ensures that the shift wraps around from 'Z' (or 'z') back to 'A' (or 'a') if the shift would otherwise result in a character outside the range of the alphabet.
+    for plain_text in text_string:
+        if is_abc(plain_text, alphabet):
+            index=int(alphabet.index(plain_text))
+            plain_text=alphabet[index + shift]
+        encr_list.append(plain_text)
+    encrypted_string = "".join(encr_list)
+    print(f"The encrypted sentence is: {encrypted_string}")
 
-            base = ord('A') if char.isupper() else ord('a')
-            shifted_char = chr((ord(char) - base + shift) % 26 + base)
-            ciphertext += shifted_char
-
-
-        else:
-            ciphertext += char
-
-    return ciphertext
-
-
-# Decrypts the text
-
-def caesar_decrypt(ciphertext, shift):
-    return caesar_encrypt(ciphertext, -shift)
-
-# Ask the user for a number to shift in the positive or negative direction
-
-while True:
-    cipher_shift = int(input("Enter the Number of Shift:"))
-    if cipher_shift == 0:
-        print("Please Input a valid shift Number")
-        continue
-    else:
-        break
-
-# Ask User for a Phrase
-
-plaintext = input("Enter Phrase:")    
-
-# Encrypts the Text
-
-encrypted_text = caesar_encrypt(plaintext, cipher_shift)
-print("The encrypted sentence is: ", encrypted_text)
-
-# Decrypts the Text
-
-#decrypted_text = caesar_decrypt(encrypted_text, cipher_shift)
-#print("Decrypted:", decrypted_text)
+enc_text(text_string=txt,shift=shift)
 
